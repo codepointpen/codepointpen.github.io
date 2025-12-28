@@ -125,6 +125,75 @@
       font-weight: 500;
     }
 
+    .polaroid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .polaroid {
+      background: white;
+      padding: 1rem 1rem 2.4rem; 
+      border-radius: 8px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .rotate-left {
+      transform: rotate(-2deg);
+    }
+
+    .rotate-right {
+      transform: rotate(2deg);
+    }
+
+    .polaroid:hover {
+      transform: translateY(-8px) rotate(0deg);
+    }
+
+    .photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 1.2rem;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .polaroid p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .float {
+      animation: floatPhoto 5s ease-in-out infinite;
+    }
+
+    @keyframes floatPhoto {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .pulse {
+      animation: pulsePhoto 4s ease-in-out infinite;
+    }
+
+    @keyframes pulsePhoto {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 
@@ -138,6 +207,8 @@
 <div class="tabs">
   <button class="tab active" data-tab="about">About</button>
   <button class="tab" data-tab="projects">Projects</button>
+  <button class="tab" data-tab="interests">Interests</button>
+  <button class="tab" data-tab="contact">Contact</button>
 </div>
 
   <main>
@@ -172,7 +243,65 @@
         <span class="project-link">View project →</span>
       </a>
     </div>
-  </div>
+    </div>
+
+  
+    <div id="interests" class="content">
+      <h2>Interests</h2>
+
+      <div class="polaroid-grid">
+        <div class="polaroid rotate-left">
+          <div class="photo float">
+            <img src="images/jsjjss.jpg" alt="Digital art">
+          </div>
+          <p>temp</p>
+        </div>
+
+        <div class="polaroid rotate-right">
+          <div class="photo pulse">
+            <img src="images/jsjjss.jpg" alt="Books and writing">
+          </div>
+          <p>temp</p>
+        </div>
+
+        <div class="polaroid rotate-left">
+          <div class="photo float">
+            <img src="images/jsjjss.jpg" alt="Indie games">
+          </div>
+          <p>temp</p>
+        </div>
+
+        <div class="polaroid rotate-right">
+          <div class="photo pulse">
+            <img src="images/jsjjss.jpg" alt="Music">
+          </div>
+          <p>temp</p>
+        </div>
+
+        <div class="polaroid rotate-left">
+          <div class="photo float">
+            <img src="images/jsjjss.jpg" alt="Nature">
+          </div>
+          <p>temp</p>
+        </div>
+
+        <div class="polaroid rotate-right">
+          <div class="photo pulse">
+            <img src="images/jsjjss.jpg" alt="Cafe sketching">
+          </div>
+          <p>temp</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="contact" class="content">
+      <h2>Contact</h2>
+      <p>
+        <a href="mailto:helenhaohu@gmail.com">helenhaohu@gmail.com</a><br>
+        temp · temp · temp
+      </p>
+    </div>
 
   </main>
   <footer>
