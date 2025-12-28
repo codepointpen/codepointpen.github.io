@@ -194,6 +194,52 @@
       50% { transform: scale(1.04); }
       100% { transform: scale(1); }
     }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      text-align: center;
+    }
+
+    .contact-card img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-card span {
+      font-weight: 500;
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+      background: var(--accent);
+      color: white;
+    }
+
+    .contact-card:hover span {
+      color: white;
+    }
+
   </style>
 </head>
 
@@ -291,11 +337,31 @@
 
     <div id="contact" class="content">
       <h2>contact</h2>
-      <p>
-        <a href="mailto:helenhaohu@gmail.com">helenhaohu@gmail.com</a><br>
-        instagram: @appleavalanche · github: @codepointpen · linkedin: @haohu
-      </p>
+
+      <div class="contact-grid">
+        <a href="mailto:helenhaohu@gmail.com" class="contact-card">
+          <img src="images/gmail.png" alt="Email">
+          <span>helenhaohu@gmail.com</span>
+        </a>
+
+        <a href="https://github.com/codepointpen" class="contact-card" target="_blank">
+          <img src="images/github.png" alt="GitHub">
+          <span>@codepointpen</span>
+        </a>
+
+        <a href="https://www.instagram.com/appleavalanche" class="contact-card" target="_blank">
+          <img src="images/insta.png" alt="Instagram">
+          <span>@appleavalanche</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/hao-hu-024384291/" class="contact-card" target="_blank">
+          <img src="images/linkedin.png" alt="LinkedIn">
+          <span>@haohu</span>
+        </a>
+
+      </div>
     </div>
+
 
   </main>
 
