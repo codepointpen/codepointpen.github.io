@@ -6,12 +6,114 @@
   <title>hao hu</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf7f5;
+      --accent: #e7b7c8;
+      --accent-dark: #d48fa8;
+      --text: #3a2f2f;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      opacity: 0.8;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .tab.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .tab:hover {
+      background: var(--accent-dark);
+      color: white;
+    }
+
+    /* Content */
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .content {
+      display: none;
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      animation: fade 0.4s ease;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 0;
+    }
+    </style>
 </head>
+
 <body>
+
   <header>
     <h1>hao hu</h1>
     <p>19 y/o • UBC • computer science</p>
   </header>
+
+  <div class="tabs">
+    <button class="tab active" onclick="openTab('about')">About</button>
+    <button class="tab" onclick="openTab('interests')">Interests</button>
+    <button class="tab" onclick="openTab('projects')">Projects</button>
+    <button class="tab" onclick="openTab('contact')">Contact</button>
+  </div>
+
   <main>
     <div id="about" class="content active">
       <h2>about me</h2>
