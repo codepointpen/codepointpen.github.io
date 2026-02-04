@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>hao hu</title>
-  
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hao hu</title>
+
+    <link rel="stylesheet" href="style.css">
   
 </head>
 <body>
-
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        🌙
+    </button>
     <section class="intro">
         <h1>Hao Hu</h1>
         <p>developer × digital artist</p>
@@ -44,7 +46,36 @@
             </div>
         </div>
     </section>
-  
+
+    <script>
+        const toggleButton = document.getElementById('darkModeToggle');
+        
+        const body = document.body;
+        
+        const savedDarkMode = localStorage.getItem('darkMode');
+        
+        if (savedDarkMode === 'enabled') {
+            body.classList.add('dark');
+            toggleButton.textContent = '☀️';  
+        }
+        
+        toggleButton.addEventListener('click', function() {
+        body.classList.toggle('dark');
+        
+        const isDarkMode = body.classList.contains('dark');
+        
+        if (isDarkMode) {
+            toggleButton.textContent = '☀️';  
+            localStorage.setItem('darkMode', 'enabled');  
+        } else {
+            toggleButton.textContent = '🌙';  
+            localStorage.setItem('darkMode', 'disabled'); 
+        }
+        
+        console.log('Dark mode:', isDarkMode ? 'ON' : 'OFF');
+        });
+
+    </script>
 
 </body>
 </html>
