@@ -9,6 +9,10 @@
   
 </head>
 <body>
+    <nav class="nav" id="mainNav">
+        <a href="#about">about</a>
+        <a href="#projects">work</a>
+    </nav>
     <button class="dark-mode-toggle" id="darkModeToggle">
         🌙
     </button>
@@ -17,14 +21,14 @@
         <p>developer × digital artist</p>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <h2>about</h2>
             <p>lalala this is a template</p>
         </div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="projects">
         <div class="container">
             <h2>Projects</h2>
 
@@ -73,6 +77,58 @@
         }
         
         console.log('Dark mode:', isDarkMode ? 'ON' : 'OFF');
+        });
+
+        const nav = document.getElementById('mainNav');
+
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        const navLinks = document.querySelectorAll('.nav a');
+        const sections = document.querySelectorAll('section');
+
+        function updateActiveLink() {
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                
+                    const activeLink = document.querySelector(`.nav a[href="#${sectionId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                }
+            });
         });
 
     </script>
