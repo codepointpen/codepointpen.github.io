@@ -32,6 +32,61 @@ body.dark .project {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
+.nav {
+    position: fixed;
+    top: 2rem;
+    right: 6rem;  
+    z-index: 999;
+    
+    display: flex;
+    gap: 2rem;
+    
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    
+    transition: all 0.3s ease;
+}
+
+.nav.scrolled {
+    background: rgba(247, 244, 237, 0.95);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .nav.scrolled {
+    background: rgba(15, 15, 15, 0.95);
+}
+
+.nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    position: relative;
+    cursor: pointer;
+    padding: 0.3rem 0;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: var(--rust);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+    width: 100%;
+}
+
 .dark-mode-toggle {
     position: fixed;
     top: 2rem;
@@ -157,6 +212,10 @@ section {
 .project p {
     color: #666;
     line-height: 1.7;
+}
+
+body.dark .project p {
+    color: #ccc;
 }
 
 @media (min-width: 768px) {
