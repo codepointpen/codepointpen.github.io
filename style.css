@@ -6,3 +6,60 @@
   box-sizing: border-box;
   transition: background-color 0.3s, color 0.3s;
 }
+
+:root {
+    --ink: #1a1a1a;
+    --paper: #f7f4ed;
+    --rust: #c75a3e;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+section {
+    padding: 4rem 2rem;
+}
+
+.intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    color: var(--rust);
+    margin-top: 1rem;
+}
