@@ -102,4 +102,19 @@ section {
     background: white;
     padding: 2rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; 
+}
+
+.project:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+    color: var(--rust);
+}
+
+.project p {
+    color: #666;
+    line-height: 1.7;
 }
