@@ -110,38 +110,84 @@
         );
         };
 
-        const ProjectCard = ({ project }) => {
-        return (
-            <article className="project-item">
-            <div className="project-number">{project.number}</div>
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-description">{project.description}</p>
-            <div className="project-tags">
-                {project.tags.map((tag, index) => (
-                <span key={index} className="project-tag">{tag}</span>
-                ))}
-            </div>
-            </article>
-        );
+        const ProjectCard = ({ project, onClick }) => {
+            return (
+                <article className="project-item" onClick={() => onClick(project)}>
+                <div className="project-number">{project.number}</div>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+                <div className="project-tags">
+                    {project.tags.map((tag, index) => (
+                    <span key={index} className="project-tag">{tag}</span>
+                    ))}
+                </div>
+                </article>
+            );
+        };
+
+        const ProjectDetail = ({ project, onClose }) => {
+            const [visible, setVisible] = React.useState(false);
+
+            useEffect(() => {
+                document.body.style.overflow = 'hidden';
+                setVisible(true);
+                return () => {
+                document.body.style.overflow = 'unset';
+                };
+            }, []);
+
+            const handleClose = () => {
+                setVisible(false);
+                setTimeout(onClose, 300); 
+            };
+
+            return (
+                <div 
+                className={`project-lightbox ${visible ? 'visible' : ''}`} 
+                onClick={handleClose}
+                >
+                <div className="project-lightbox-content" onClick={(e) => e.stopPropagation()}>
+                    <button className="lightbox-close" onClick={handleClose}>×</button>
+                    <h1 className="project-detail-title">{project.title}</h1>
+                    <p className="project-detail-description">{project.description}</p>
+                    <div className="project-detail-tags">
+                    {project.tags.map((tag, i) => (
+                        <span key={i} className="project-tag">{tag}</span>
+                    ))}
+                    </div>
+                </div>
+                </div>
+            );
         };
 
         const Projects = () => {
-        return (
-            <section id="projects" className="projects">
-            <div className="projects-container">
-                <h2 className="section-title">Selected Work</h2>
-                
-                <div className="annotation annotation-1">in progress →</div>
-                
-                <div className="projects-collage">
-                {projectsData.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
-                ))}
+            const [selectedProject, setSelectedProject] = useState(null);
+
+            return (
+                <section id="projects" className="projects">
+                <div className="projects-container">
+                    <h2 className="section-title">Selected Work</h2>
+
+                    <div className="annotation annotation-1">in progress →</div>
+
+                    <div className="projects-collage">
+                    {projectsData.map((project) => (
+                        <ProjectCard
+                        key={project.id}
+                        project={project}
+                        onClick={setSelectedProject} 
+                        />
+                    ))}
+                    </div>
                 </div>
-            </div>
-            </section>
-        );
+
+                {selectedProject && (
+                    <ProjectDetail project={selectedProject} onClose={() => setSelectedProject(null)} />
+                )}
+                </section>
+            );
         };
+
 
         const ArtPage = () => {
             const [filter, setFilter] = useState('all');
