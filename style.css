@@ -35,9 +35,60 @@ body.dark .info::before {
     background: #1a1a1a !important;
 }
 
+body.dark .scrap-1 { background: var(--ochre); opacity: 0.5; }
+body.dark .scrap-2 { background: var(--faded-blue); opacity: 0.4; }
+body.dark .scrap-3 { background: var(--olive); opacity: 0.4; }
+body.dark .name .last-name { color: var(--ochre); }
+body.dark .about { background: #0a0a0a; }
+body.dark .projects { background: #141414; }
+body.dark .project-item { background: #1a1a1a; border-color: rgba(255, 255, 255, 0.1); }
+body.dark .project-title,
+body.dark .section-title { color: #ffffff; }
+body.dark .project-description { color: #d0d0d0; }
+body.dark .gallery-item { background: #1a1a1a; }
+body.dark .nav { color: #f0f0f0; }
+body.dark .nav.nav-scrolled { background: rgba(20, 20, 20, 0.95); }
+body.dark .art-page { background: #0a0a0a; }
+body.dark .filter-btn { border-color: rgba(212, 160, 86, 0.3); color: #f0f0f0; }
+body.dark .filter-btn.active { background: var(--ochre); color: #000; }
+body.dark .art-detail-card { background: #1a1a1a; }
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.02) 2px, rgba(0,0,0,.02) 4px);
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.3;
+}
+
+body.dark::before {
+    background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,.02) 2px, rgba(255,255,255,.02) 4px);
+}
+
+body.dark .dark-mode-toggle {
+    background: #1a1a1a;
+    border-color: var(--ochre);
+    box-shadow: 0 4px 15px rgba(212, 160, 86, 0.3);
+}
+
 body.dark .project {
     background: #1a1a1a;
     border-color: rgba(255, 255, 255, 0.1);
+}
+
+.canvas {
+    min-height: 100vh;
+    position: relative;
+    padding: 0;
 }
 
 .nav {
@@ -115,7 +166,11 @@ body.dark .nav.scrolled {
     justify-content: center;
 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
+}
+
+body.dark .nav a {
+    color: #f0f0f0;
 }
 
 .dark-mode-toggle:hover {
