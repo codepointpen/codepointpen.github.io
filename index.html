@@ -144,9 +144,78 @@
         };
 
         const ArtPage = () => {
+            const [filter, setFilter] = useState('all');
+            const [selectedArt, setSelectedArt] = useState(null);
+
+            const filteredArt = filter === 'all' 
+                ? artworksData 
+                : artworksData.filter(art => art.category === filter);
+
+            const categories = ['all', ...new Set(artworksData.map(art => art.category))];
+
+            return (
+                <div className="art-page">
+                <div className="art-header">
+                    <h1 className="art-title">Visual Work</h1>
+                    <p className="art-subtitle">Digital Art Portfolio</p>
+                </div>
+
+                <div className="filter-container">
+                    {categories.map(cat => (
+                    <button
+                        key={cat}
+                        onClick={() => setFilter(cat)}
+                        className={`filter-btn ${filter === cat ? 'active' : ''}`}
+                    >
+                        {cat}
+                    </button>
+                    ))}
+                </div>
+
+                <div className="art-gallery-grid">
+                    {filteredArt.map(artwork => (
+                    <div 
+                        key={artwork.id} 
+                        className="art-detail-card"
+                        onClick={() => setSelectedArt(artwork)}
+                    >
+                        <img src={artwork.imageUrl} alt={artwork.title} />
+                        <div className="art-card-info">
+                        <h3 className="art-card-title">{artwork.title}</h3>
+                        <p className="art-card-desc">{artwork.description}</p>
+                        <span className="art-card-category">{artwork.category}</span>
+                        </div>
+                    </div>
+                    ))}
+                </div>
+
+                {selectedArt && (
+                    <Lightbox artwork={selectedArt} onClose={() => setSelectedArt(null)} />
+                )}
+                </div>
+            );
         };
 
         const Lightbox = ({ artwork, onClose }) => {
+            useEffect(() => {
+                document.body.style.overflow = 'hidden';
+                return () => {
+                document.body.style.overflow = 'unset';
+                };
+            }, []);
+
+            return (
+                <div className="lightbox" onClick={onClose}>
+                <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                    <button className="lightbox-close" onClick={onClose}>×</button>
+                    <img src={artwork.imageUrl} alt={artwork.title} />
+                    <div className="lightbox-info">
+                    <h2 className="lightbox-title">{artwork.title}</h2>
+                    <p className="lightbox-desc">{artwork.description} • {artwork.year}</p>
+                    </div>
+                </div>
+                </div>
+            );
         };
 
         const App = () => {
