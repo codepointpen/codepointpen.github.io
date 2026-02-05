@@ -281,6 +281,65 @@ body.dark .project p {
     color: #ccc;
 }
 
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 60%;
+    height: 120%;
+    background: var(--cream);
+    transform: rotate(8deg);
+    box-shadow: -20px 20px 60px rgba(0,0,0,0.1);
+    clip-path: polygon(0% 2%, 2% 0%, 98% 1%, 100% 3%, 99% 97%, 97% 100%, 3% 99%, 0% 98%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 4rem;
+}
+
+.name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 400;
+    line-height: 0.95;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.name .first-name {
+    display: block;
+    margin-left: 3rem;
+}
+
+.name .last-name {
+    display: block;
+    font-style: italic;
+    color: var(--rust);
+}
+
+.tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    opacity: 0.7;
+}
+
 @media (min-width: 768px) {
 
     h1 {
