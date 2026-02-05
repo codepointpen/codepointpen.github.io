@@ -281,7 +281,7 @@ body.dark .project p {
     color: #ccc;
 }
 
-.hero {
+.info {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -290,7 +290,7 @@ body.dark .project p {
     overflow: hidden;
 }
 
-.hero::before {
+.info::before {
     content: '';
     position: absolute;
     top: -10%;
@@ -303,7 +303,7 @@ body.dark .project p {
     clip-path: polygon(0% 2%, 2% 0%, 98% 1%, 100% 3%, 99% 97%, 97% 100%, 3% 99%, 0% 98%);
 }
 
-.hero-content {
+.info-content {
     position: relative;
     z-index: 2;
     max-width: 900px;
@@ -328,6 +328,7 @@ body.dark .project p {
     display: block;
     font-style: italic;
     color: var(--rust);
+    margin-left: 4rem;
 }
 
 .tagline {

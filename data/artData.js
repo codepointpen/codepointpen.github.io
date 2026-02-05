@@ -1,4 +1,4 @@
-const artworks = [
+const  artworksData = [
     {
         id: 1,
         title: "Artwork 1",
