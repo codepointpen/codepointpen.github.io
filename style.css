@@ -27,9 +27,12 @@ body {
 }
 
 body.dark {
-    --ink: #f0f0f0;
-    --paper: #0f0f0f;
-    --cream: #1a1a1a;
+    background: #0f0f0f;
+    color: #f0f0f0;
+}
+
+body.dark .info::before {
+    background: #1a1a1a !important;
 }
 
 body.dark .project {
