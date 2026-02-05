@@ -340,6 +340,45 @@ body.dark .project p {
     opacity: 0.7;
 }
 
+.scrap {
+    position: absolute;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.scrap-1 {
+    top: 15%;
+    left: 8%;
+    width: 200px;
+    height: 150px;
+    transform: rotate(-12deg);
+    background: var(--ochre);
+    opacity: 0.4;
+    clip-path: polygon(3% 0%, 100% 2%, 97% 100%, 0% 98%);
+}
+
+.scrap-2 {
+    bottom: 20%;
+    right: 15%;
+    width: 180px;
+    height: 120px;
+    transform: rotate(25deg);
+    background: var(--faded-blue);
+    opacity: 0.3;
+    clip-path: polygon(0% 3%, 98% 0%, 100% 95%, 2% 100%);
+}
+
+.scrap-3 {
+    top: 40%;
+    left: 5%;
+    width: 100px;
+    height: 140px;
+    transform: rotate(-8deg);
+    background: var(--olive);
+    opacity: 0.25;
+    clip-path: polygon(2% 0%, 100% 1%, 98% 100%, 0% 97%);
+}
+
 @media (min-width: 768px) {
 
     h1 {
