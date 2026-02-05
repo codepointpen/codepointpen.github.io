@@ -61,32 +61,17 @@
     </section>
 
     <script>
-        const toggleButton = document.getElementById('darkModeToggle');
-        
-        const body = document.body;
-        
-        const savedDarkMode = localStorage.getItem('darkMode');
-        
-        if (savedDarkMode === 'enabled') {
-            body.classList.add('dark');
-            toggleButton.textContent = '☀️';  
-        }
-        
-        toggleButton.addEventListener('click', function() {
-        body.classList.toggle('dark');
-        
-        const isDarkMode = body.classList.contains('dark');
-        
-        if (isDarkMode) {
-            toggleButton.textContent = '☀️';  
-            localStorage.setItem('darkMode', 'enabled');  
-        } else {
-            toggleButton.textContent = '🌙';  
-            localStorage.setItem('darkMode', 'disabled'); 
-        }
-        
-        console.log('Dark mode:', isDarkMode ? 'ON' : 'OFF');
-        });
+        const DarkModeToggle = ({ isDark, toggle }) => {
+            return (
+                <button
+                onClick={toggle}
+                className="dark-mode-toggle"
+                title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+                >
+                {isDark ? '☀️' : '🌙'}
+                </button>
+            );
+        };
 
         const Navigation = ({ currentPage, setCurrentPage }) => {
             const [isScrolled, setIsScrolled] = useState(false);
