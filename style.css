@@ -141,8 +141,7 @@ body.dark .nav.scrolled {
     transition: width 0.3s ease;
 }
 
-.nav a:hover::after,
-.nav a.active::after {
+.nav a:hover::after {
     width: 100%;
 }
 
@@ -900,4 +899,48 @@ body.dark .project p {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.contact {
+  background: var(--cream);
+  padding: 6rem 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.contact p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.95rem;
+}
+
+.contact-links a {
+  color: var(--rust);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-links a:hover {
+  color: var(--burnt-sienna);
+}
+
+body.dark .contact {
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+
+body.dark .contact-links a {
+  color: #f0f0f0;
+}
+
+body.dark .contact-links a:hover {
+  color: var(--ochre);
 }
