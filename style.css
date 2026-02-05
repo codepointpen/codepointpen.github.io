@@ -944,3 +944,12 @@ body.dark .contact-links a {
 body.dark .contact-links a:hover {
   color: var(--ochre);
 }
+
+body.dark .project-lightbox-content {
+    background: #1a1a1a; 
+    color: #f0f0f0;     
+}
+
+body.dark .project-lightbox .lightbox-close {
+    color: #f0f0f0;
+}
