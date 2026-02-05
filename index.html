@@ -24,90 +24,90 @@
         const { useState, useEffect } = React;
 
         const DarkModeToggle = ({ isDark, toggle }) => {
-        return (
-            <button
-            onClick={toggle}
-            className="dark-mode-toggle"
-            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            >
-            {isDark ? '☀️' : '🌙'}
-            </button>
-        );
+            return (
+                <button
+                onClick={toggle}
+                className="dark-mode-toggle"
+                title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+                >
+                {isDark ? '☀️' : '🌙'}
+                </button>
+            );
         };
 
         const Navigation = ({ currentPage, setCurrentPage }) => {
-        const [isScrolled, setIsScrolled] = useState(false);
+            const [isScrolled, setIsScrolled] = useState(false);
 
-        useEffect(() => {
-            const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            useEffect(() => {
+                const handleScroll = () => {
+                setIsScrolled(window.scrollY > 50);
+                };
+
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            const scrollToSection = (sectionId) => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                }
             };
 
-            window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
-
-        const scrollToSection = (sectionId) => {
-            const element = document.getElementById(sectionId);
-            if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            }
-        };
-
-        return (
-            <nav className={`nav ${isScrolled ? 'nav-scrolled' : ''}`}>
-            {currentPage === 'home' ? (
-                <>
-                <a onClick={() => scrollToSection('about')} className={currentPage === 'home' ? 'active' : ''}>About</a>
-                <a onClick={() => scrollToSection('projects')} className={currentPage === 'home' ? 'active' : ''}>Work</a>
-                <a onClick={() => setCurrentPage('art')}>Art</a>
-                </>
-            ) : (
-                <>
-                <a onClick={() => setCurrentPage('home')}>Home</a>
-                <a className="active">Art</a>
-                </>
-            )}
-            </nav>
-        );
+            return (
+                <nav className={`nav ${isScrolled ? 'nav-scrolled' : ''}`}>
+                {currentPage === 'home' ? (
+                    <>
+                    <a onClick={() => scrollToSection('about')} className={currentPage === 'home' ? 'active' : ''}>About</a>
+                    <a onClick={() => scrollToSection('projects')} className={currentPage === 'home' ? 'active' : ''}>Work</a>
+                    <a onClick={() => setCurrentPage('art')}>Art</a>
+                    </>
+                ) : (
+                    <>
+                    <a onClick={() => setCurrentPage('home')}>Home</a>
+                    <a className="active">Art</a>
+                    </>
+                )}
+                </nav>
+            );
         };
 
         const Info = () => {
-        return (
-            <section className="info">
-            <div className="scrap scrap-1"></div>
-            <div className="scrap scrap-2"></div>
-            <div className="scrap scrap-3"></div>
-            
-            <div className="info-content">
-                <h1 className="name">
-                <span className="first-name">Hao</span>
-                <span className="last-name">Hu</span>
-                </h1>
-                <p className="tagline">Developer × Digital Artist</p>
-            </div>
-            </section>
-        );
+            return (
+                <section className="info">
+                <div className="scrap scrap-1"></div>
+                <div className="scrap scrap-2"></div>
+                <div className="scrap scrap-3"></div>
+                
+                <div className="info-content">
+                    <h1 className="name">
+                    <span className="first-name">Hao</span>
+                    <span className="last-name">Hu</span>
+                    </h1>
+                    <p className="tagline">Developer × Digital Artist</p>
+                </div>
+                </section>
+            );
         };
 
         const About = () => {
-        return (
-            <section id="about" className="about">
-            <div className="tape tape-1"></div>
-            
-            <div className="about-grid">
-                <div>
-                <div className="section-label">About</div>
+            return (
+                <section id="about" className="about">
+                <div className="tape tape-1"></div>
+                
+                <div className="about-grid">
+                    <div>
+                    <div className="section-label">About</div>
+                    </div>
+                    <div className="about-text">
+                    <p>placeholder</p>
+                    <p>placeholder</p>
+                    </div>
                 </div>
-                <div className="about-text">
-                <p>placeholder</p>
-                <p>placeholder</p>
-                </div>
-            </div>
-            
-            <div className="tape tape-2"></div>
-            </section>
-        );
+                
+                <div className="tape tape-2"></div>
+                </section>
+            );
         };
 
         const ProjectCard = ({ project, onClick }) => {
@@ -263,6 +263,8 @@
                 </div>
             );
         };
+
+        
 
         const App = () => {
         const [isDark, setIsDark] = useState(false);
