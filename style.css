@@ -905,7 +905,7 @@ body.dark .project p {
   background: var(--cream);
   padding: 6rem 4rem;
   text-align: center;
-  position: relative;
+  position: left;
 }
 
 .contact p {
