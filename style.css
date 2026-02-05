@@ -953,3 +953,17 @@ body.dark .project-lightbox-content {
 body.dark .project-lightbox .lightbox-close {
     color: #f0f0f0;
 }
+
+.project-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 2px solid currentColor;
+  transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+  opacity: 0.6;
+}
