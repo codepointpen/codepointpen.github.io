@@ -18,9 +18,9 @@ const projectsData = [
     {
         id: 3,
         number: "03",
-        title: "Sign Language Translator",
-        description: "In progress! Take in either a video or live footage and translate the alphabet from American sign language to English text using machine learning models trained off user-created gestures and SQL databases.",
-        tags: ["MySQL", "Machine Learning", "Motion Sensor Detector"],
-        link: "https://github.com/codepointpen"
+        title: "Personal Website",
+        description: "The website you're on right now! A responsive portfolio website built with React. Implements modular component architecture, interactive art gallery with category filtering, lightbox modal, a light/dark mode widget, and smooth animations using React Hooks and CSS Grid.",
+        tags: ["React", "CSS", "Javascript", "HTML"],
+        link: "https://github.com/codepointpen/codepointpen.github.io"
     }
 ];
